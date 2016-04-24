@@ -1,0 +1,18 @@
+.button {
+	-fx-background-radius: 2;
+	-fx-background-color:  #151515;
+	-fx-font-family: 	   "Tamoha";
+ 	-fx-font-size: 		   14;
+	-fx-padding: 		   10 25 10 25;
+	-fx-opacity:           1;
+}
+
+.button:hover {
+	-fx-underline: true;
+}
+
+.text {
+	-fx-font-family: "Tamoha";
+ 	-fx-font-size: 	 14;
+ 	-fx-fill:        #9E9E9E;
+}
