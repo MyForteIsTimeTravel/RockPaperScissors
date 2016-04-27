@@ -27,12 +27,10 @@ class GameLauncher extends Application {
     /** 
      *  start
      *  
-     *  Parameters:
-     *      stage           The JavaFX Stage for this application
+     *  @param Stage
      *  
-     *  Description:
-     *      This function initialises the parameters for and 
-     *      launches the JavaFX Application
+     *  This function initialises the parameters for and 
+     *  launches the JavaFX Application
      */
     override def start (stage: Stage) = {
         stage.setTitle      ("rock, paper, scissors")
@@ -54,17 +52,18 @@ class GameLauncher extends Application {
 /** 
  *  Companion Object Pattern
  *      
- *      Provides a static context from which
- *      to launch the FX Application
+ *  Provides a static context from which
+ *  to launch the FX Application
  */
 object GameLauncher {
 
     /** 
      *  main
      * 
-     *  Description:
-     *      Calls checkCPU to query the hardware before
-     *      launching the FX application
+     *  @param Array[String]
+     * 
+     *  Calls checkCPU to query the hardware before
+     *  launching the FX application
      */
     def main (args: Array[String]) = {
         checkCPU
@@ -77,11 +76,10 @@ object GameLauncher {
     /** 
      *  checkCPU
      *
-     *  Description:
-     *      Checks if the current system is capable of
-     *      concurrent execution. Prints out if this is
-     *      a multicore system and therefore capable of
-     *      concurrency.
+     *  Checks if the current system is capable of
+     *  concurrent execution. Prints out if this is
+     *  a multicore system and therefore capable of
+     *  concurrency.
      */
     private final def checkCPU = {
         print("\u001b[2J\u001b[0;0H")
