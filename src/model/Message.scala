@@ -26,14 +26,12 @@ final class Message (id: Int, hand: Shape) {
     /** 
      *  beats
      *
-     *  Parameters:
-     *      opponent    Message     The sending player's adversary
+     *  @param Message
      *
-     *  Description:
-     *      Returns true if the opponent move beats the 
-     *      sending players move. This is achieved by 
-     *      defering to the Shape class's function of
-     *      the same name.
+     *  Returns true if the opponent move beats the 
+     *  sending players move. This is achieved by 
+     *  defering to the Shape class's function of
+     *  the same name.
      *      
      */
     def beats (opponent: Message): Boolean = {
