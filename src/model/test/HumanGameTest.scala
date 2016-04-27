@@ -45,9 +45,8 @@ object HumanGameTest {
     /** 
      *  checkCPU
      *
-     *  Description:
-     *      Prints the core count of the CPU and
-     *      whether or not it supports concurrency
+     *  Prints the core count of the CPU and
+     *  whether or not it supports concurrency
      */
     private final def checkCPU = {
         print("\u001b[2J\u001b[0;0H")
@@ -61,8 +60,7 @@ object HumanGameTest {
     /** 
      *  splashScreen
      *
-     *  Description:
-     *      A welcome screen with "press start to begin"
+     *  A welcome screen with "press start to begin"
      */
     private final def splashScreen = {
         println("ROCK, PAPER, SCISSORS: Human edition")
@@ -73,8 +71,7 @@ object HumanGameTest {
     /** 
      *  getUserInput
      *
-     *  Description:
-     *      prompts the user to select a turn.
+     *  prompts the user to select a turn.
      */
     private final def getUserInput = {
             println("\n")
