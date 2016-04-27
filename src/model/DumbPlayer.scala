@@ -25,11 +25,10 @@ final class DumbPlayer (id: Int, turns: Int, ref: Referee) extends Player {
     /** 
      *  makeMove
      *
-     *  Description:
-     *      Generates a random float between 1 and 0 before
-     *      selecting a hand based on where it sits between 
-     *      1 and 0, splitting the range into 3 potential
-     *      outcomes.
+     *  Generates a random float between 1 and 0 before
+     *  selecting a hand based on where it sits between 
+     *  1 and 0, splitting the range into 3 potential
+     *  outcomes.
      */
     protected def makeMove  = {
         var choice = generator.nextFloat
