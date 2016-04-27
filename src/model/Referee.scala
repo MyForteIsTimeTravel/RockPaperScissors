@@ -28,10 +28,11 @@ final class Referee extends Runnable {
     /** 
      *  Custom Constructor
      *  
-     *  Description:
-     *      As the default constructor sets the controller
-     *      field to null, this constructor accepts a reference
-     *      to a controller that can be used to display matches.
+     *  @param Controller
+     *  
+     *  As the default constructor sets the controller
+     *  field to null, this constructor accepts a reference
+     *  to a controller that can be used to display matches.
      *      
      */
     def this (contr: Controller) = {
@@ -42,20 +43,18 @@ final class Referee extends Runnable {
     /** 
      *  addToQueue
      *
-     *  Description:
-     *      takes a reference to a message object and
-     *      places it in the queue, waiting for space
-     *      to become available if the queue is full.
+     *  takes a reference to a message object and
+     *  places it in the queue, waiting for space
+     *  to become available if the queue is full.
      */
     def addToQueue (m: Message) = queue put m
 
     /** 
      *  isPaused & isRunning
      *
-     *  Description:
-     *      these functions are used to check the status
-     *      of the referee. They simply return the current
-     *      state of the operational variables.
+     *  these functions are used to check the status
+     *  of the referee. They simply return the current
+     *  state of the operational variables.
      */
     def isPaused:  Boolean = paused
     def isRunning: Boolean = running
@@ -63,11 +62,10 @@ final class Referee extends Runnable {
     /** 
      *  pause & unpause
      *
-     *  Description:
-     *      sets the paused field to the opposite of
-     *      its current state. If the referee is paused
-     *      it will be unpaused and if it is unpaused it
-     *      will be paused.
+     *  sets the paused field to the opposite of
+     *  its current state. If the referee is paused
+     *  it will be unpaused and if it is unpaused it
+     *  will be paused.
      */
     def pause   = paused = true
     def unpause = paused = false
@@ -75,21 +73,19 @@ final class Referee extends Runnable {
     /** 
      *  shutdown
      *
-     *  Description:
-     *      sets the referees "running" field to false, 
-     *      causing the main loop to break and the referee
-     *      to cease execution
+     *  sets the referees "running" field to false, 
+     *  causing the main loop to break and the referee
+     *  to cease execution
      */
     def shutdown = running = false 
   
     /** 
      *  runMatch
      *
-     *  Description:
-     *      safely accesses the queue and removes two messages.
-     *      The match is then outputted to the terminal and, if
-     *      it is defined, the controller before being sent to the
-     *      chooseWinner function to decypher the outcome.
+     *  safely accesses the queue and removes two messages.
+     *  The match is then outputted to the terminal and, if
+     *  it is defined, the controller before being sent to the
+     *  chooseWinner function to decypher the outcome.
      */
     private def runMatch = {
         var a = queue.take
@@ -110,12 +106,14 @@ final class Referee extends Runnable {
     /** 
      *  chooseWinner
      *
-     *  Description:
-     *      takes two messages that represent a game, uses the
-     *      "beats" function from the Message class (which defers
-     *      to the Shape class) to decypher the outcome of the match
-     *      before informing the participants of the result and 
-     *      outputting the results to the console.
+     *  @param Message 
+     *  @param Message
+     * 
+     *  takes two messages that represent a game, uses the
+     *  "beats" function from the Message class (which defers
+     *  to the Shape class) to decypher the outcome of the match
+     *  before informing the participants of the result and 
+     *  outputting the results to the console.
      */
     private def chooseWinner (a: Message, b: Message) = {
         if ( a beats b ) {
@@ -140,9 +138,8 @@ final class Referee extends Runnable {
     /** 
      *  resetState
      *  
-     *  Description:
-     *      Resets the operational variables for the Referee
-     *      to ensure the referee Thread can be safely started.
+     *  Resets the operational variables for the Referee
+     *  to ensure the referee Thread can be safely started.
      */
     def resetState = {
         running   = true
@@ -153,19 +150,18 @@ final class Referee extends Runnable {
     /** 
      *  run
      *
-     *  Description:
-     *      Prints a message to the console informing the
-     *      user the referee has started before calling 
-     *      reset state to ensure it is safe to start.
-     *      The function then iterates until it is shut down
-     *      and on each iteration, attempts to run a game (if 
-     *      it has not been paused) before sleeping for 1500ms 
-     *      to simulate a countdown and prevent an overly aggressive
-     *      execution that leads to unfinished player threads. 
+     *  Prints a message to the console informing the
+     *  user the referee has started before calling 
+     *  reset state to ensure it is safe to start.
+     *  The function then iterates until it is shut down
+     *  and on each iteration, attempts to run a game (if 
+     *  it has not been paused) before sleeping for 1500ms 
+     *  to simulate a countdown and prevent an overly aggressive
+     *  execution that leads to unfinished player threads. 
      *  
-     *      An additional loop is used during shutdown to clear
-     *      any remaining players from the session and let them
-     *      shut themselves down gracefully.
+     *  An additional loop is used during shutdown to clear
+     *  any remaining players from the session and let them
+     *  shut themselves down gracefully.
      */
     def run = {
         resetState
@@ -183,11 +179,11 @@ final class Referee extends Runnable {
     /** 
      *  runShutdownOperations
      *  
-     *      Here the referee kills off player
-     *      threads that may be remaining (due
-     *      to a premature exit from the GUI) by 
-     *      feeding them an error that exhausts
-     *      their turn count.
+     *  Here the referee kills off player
+     *  threads that may be remaining (due
+     *  to a premature exit from the GUI) by 
+     *  feeding them an error that exhausts
+     *  their turn count.
      */
     private def runShutdownOperations = {
         // not 100% effective.
