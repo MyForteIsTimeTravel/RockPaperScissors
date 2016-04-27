@@ -46,11 +46,13 @@ class GameController (stage: Stage, scene: Scene) extends Controller {
 
     /** 
      *  makePlayers
-     *  
-     *  Description
-     *      given a number of players and turns, this function will
-     *      return an array of player threads with unique IDs and the
-     *      given number of turns
+     * 
+     *  @param Int
+     *  @param Int
+     * 
+     *  given a number of players and turns, this function will
+     *  return an array of player threads with unique IDs and the
+     *  given number of turns
      */
     def makePlayers (nplayers: Int, nturns: Int): Array[Thread] = {
         Array.tabulate (nplayers) { p =>
@@ -60,14 +62,16 @@ class GameController (stage: Stage, scene: Scene) extends Controller {
 
     /** 
      *  displayMatch
+     * 
+     *  @param Shape
+     *  @param Shape
      *
-     *  Description
-     *      when given two shapes, this function will display
-     *      the match in the view's gameWindow before adding 
-     *      a representation of the game to the previous games
-     *      list. Adding to the list is passed as a runnable to 
-     *      the FX Thread for execution as operations on javaFX
-     *      observable lists need to be executed on the FX thread
+     *  when given two shapes, this function will display
+     *  the match in the view's gameWindow before adding 
+     *  a representation of the game to the previous games
+     *  list. Adding to the list is passed as a runnable to 
+     *  the FX Thread for execution as operations on javaFX
+     *  observable lists need to be executed on the FX thread
      */
     def displayMatch (a: Shape, b: Shape) = {
         view.playerOneSprite.setImage(new Image ("assets/" + a.name + ".png"))
@@ -97,13 +101,12 @@ class GameController (stage: Stage, scene: Scene) extends Controller {
     /** 
      *  attatchHandlers
      *
-     *  Description:
-     *      This function attatches handlers to the elements
-     *      in the views UI Layer using annonymous classes.
+     *  This function attatches handlers to the elements
+     *  in the views UI Layer using annonymous classes.
      *
-     *      Games are given their own thread to allow waiting
-     *      for all threads to join without interfeering with
-     *      graphics rendering
+     *  Games are given their own thread to allow waiting
+     *  for all threads to join without interfeering with
+     *  graphics rendering
      */
     def attachHandlers = {
 
