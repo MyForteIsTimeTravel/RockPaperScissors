@@ -46,9 +46,8 @@ object ComputerGameTest {
     /** 
      *  checkCPU
      *
-     *  Description:
-     *      Prints the core count of the CPU and
-     *      whether or not it supports concurrency
+     *  Prints the core count of the CPU and
+     *  whether or not it supports concurrency
      */
     private final def checkCPU = {
         print("\u001b[2J\u001b[0;0H")
@@ -62,9 +61,8 @@ object ComputerGameTest {
     /** 
      *  getParameters
      *
-     *  Description:
-     *      Queries the user for running parameters,
-     *      enforcing an even player count.
+     *  Queries the user for running parameters,
+     *  enforcing an even player count.
      */
     private final def getParameters = {
         val input = new Scanner(System.in)
