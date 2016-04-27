@@ -32,32 +32,33 @@ final class HumanPlayer (id: Int, turns: Int, ref: Referee) extends Player {
     /** 
      *  setChoice
      *
-     *  Description:
-     *      setChoice will be called from the gui on
-     *      user prompt and makeMove will use this variable 
-     *      as the move. This prevents the program
-     *      blocking for i/o on makeMove calls and allows
-     *      the game to proceed regardless
+     *  @param Int
+     * 
+     *  setChoice will be called from the gui on
+     *  user prompt and makeMove will use this variable 
+     *  as the move. This prevents the program
+     *  blocking for i/o on makeMove calls and allows
+     *  the game to proceed regardless
      */
     def setChoice (c: Int) = choice.putMVar(c)
 
     /** 
      *  isChoiceSet - EXPERIMENTAL
      *  
-     *  Description:
-     *      Used to attempt to deal with the GUI exitting
-     *      the game while the player is making a move, causing
-     *      the thread to hang. Queries the "getIsSet" method 
-     *      I added to the MVar class
+     *  @return Boolean
+     * 
+     *  Used to attempt to deal with the GUI exitting
+     *  the game while the player is making a move, causing
+     *  the thread to hang. Queries the "getIsSet" method 
+     *  I added to the MVar class
      */
     def isChoiceSet: Boolean = choice.getIsSet
     
     /** 
      *  makeMove
      *
-     *  Description:
-     *      Sets the players hand to the choice made by
-     *      the user.
+     *  Sets the players hand to the choice made by
+     *  the user.
      */
     protected def makeMove = { 
         var c = choice.takeMVar
