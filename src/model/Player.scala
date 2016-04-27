@@ -38,46 +38,45 @@ trait Player extends Runnable {
     /**
      *  makeMove
      *
-     *  Description:
-     *      An abstract method to be implemented by subclasses.
-     *      Used to choose a move and assign it to the "hand"
-     *      field.
+     *  An abstract method to be implemented by subclasses.
+     *  Used to choose a move and assign it to the "hand"
+     *  field.
      *
      */
     protected def makeMove
 
     /** 
      *  makeMessage
+     * 
+     *  @return Message
      *
-     *  Description:
-     *      A function that packages the players ID and hand in
-     *      a Message object and returns a reference to it.
+     *  A function that packages the players ID and hand in
+     *  a Message object and returns a reference to it.
      */
     private final def makeMessage: Message = new Message (playerID, hand)
 
     /** 
      *  gamesPlayed
      *  
-     *  Description:
-     *      returns the number of games played by the player
-     *      in this current session. This is done by adding 
-     *      the total of wins, losses and draws and returning
-     *      the result.
+     *  @return Int
+     * 
+     *  returns the number of games played by the player
+     *  in this current session. This is done by adding 
+     *  the total of wins, losses and draws and returning
+     *  the result.
      */
     private final def gamesPlayed: Int = winCount + lossCount + drawCount
     
     /** 
      *  getResultOf
      *
-     *  Parameters:
-     *      turn    Message     a reference to a Message object representing the current turn
+     *  @param Message
      *
-     *  Description:
-     *      Extracts the result MVar from the Message object and
-     *      updates the players "records" based on the outcome
-     *      of the game. The error code "-3" is used to kill off
-     *      player threads in the event the referee is shut down
-     *      while player threads are still iterating.
+     *  Extracts the result MVar from the Message object and
+     *  updates the players "records" based on the outcome
+     *  of the game. The error code "-3" is used to kill off
+     *  player threads in the event the referee is shut down
+     *  while player threads are still iterating.
      */
     private final def getResultOf (turn: Message) = {
         var result = turn.result.takeMVar
@@ -91,9 +90,10 @@ trait Player extends Runnable {
     /** 
      *  outcome
      *
-     *  Description:
-     *      returns, as a string, the outcome of this session 
-     *      (ID, wins, losses, draws and total number of games)
+     *  @return String
+     * 
+     *  returns, as a string, the outcome of this session 
+     *  (ID, wins, losses, draws and total number of games)
      */
     private final def outcome: String = {
         "\nPlayer " + playerID    + " Finished" +
@@ -107,14 +107,13 @@ trait Player extends Runnable {
     /** 
      *  run
      *
-     *  Description:
-     *      Prints a message to the console with the players ID
-     *      to inform the user the player has started. The function
-     *      then iterates for a given number of turns, selecting a 
-     *      shape, packaging it in a message, sending it to the 
-     *      referee and waiting for a result. Once its turns are 
-     *      exhausted the player outputs the results of the session
-     *      and ceases exectution.
+     *  Prints a message to the console with the players ID
+     *  to inform the user the player has started. The function
+     *  then iterates for a given number of turns, selecting a 
+     *  shape, packaging it in a message, sending it to the 
+     *  referee and waiting for a result. Once its turns are 
+     *  exhausted the player outputs the results of the session
+     *  and ceases exectution.
      */
     final def run = {
         println("Player " + playerID + " started")
