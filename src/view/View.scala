@@ -537,11 +537,12 @@ class View (screenWidth: Int, screenHeight: Int) extends StackPane {
   
     /** 
      *  renderWith
+     * 
+     *  @param Array[GraphicsObject]
      *  
-     *  Description:
-     *      given an array of objects, this function will 
-     *      render its given objects between the backdrop 
-     *      and header. (backdrop -> content -> header)
+     *  given an array of objects, this function will 
+     *  render its given objects between the backdrop 
+     *  and header. (backdrop -> content -> header)
      */
     def renderWith (objects: Array[GraphicsObject]) {
         backdrop.render (context)
